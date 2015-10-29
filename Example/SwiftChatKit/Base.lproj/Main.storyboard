@@ -1,25 +1,177 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lg9-gB-ysO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Navigation Controller-->
+        <scene sceneID="IlP-g9-PkP">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <navigationController id="lg9-gB-ysO" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6Ro-rW-Ocq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IEg-tU-14B" kind="relationship" relationship="rootViewController" id="b9x-a9-dOu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XFP-bu-thk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-710.5" y="-31.875"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="peD-sd-qTO">
+            <objects>
+                <viewController storyboardIdentifier="ChatViewController" id="TIV-UR-9M8" customClass="ChatViewController" customModule="SwiftChatKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ks8-cu-U2Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="YlQ-cH-Xsu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NRc-k2-TZe">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WTw-f7-BWW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wih-fq-JJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="275.5" y="-32.5"/>
+        </scene>
+        <!--Index View Controller-->
+        <scene sceneID="PH3-Ww-C1d">
+            <objects>
+                <viewController id="IEg-tU-14B" customClass="IndexViewController" customModule="SwiftChatKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mz6-L9-pOC"/>
+                        <viewControllerLayoutGuide type="bottom" id="kxG-uX-kcG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RdL-ox-t0E">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUW-nf-sUj">
+                                <rect key="frame" x="20" y="156" width="335" height="35"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.34731533999999997" green="0.80287781729999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Fxf-uJ-SO7"/>
+                                </constraints>
+                                <state key="normal" title="My name is Li lei">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleChatButtonPress:" destination="IEg-tU-14B" eventType="touchUpInside" id="9JE-Zc-I8w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtw-Tk-tOH">
+                                <rect key="frame" x="20" y="241" width="335" height="35"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.34731533999999997" green="0.80287781729999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="8yT-TQ-PIR"/>
+                                </constraints>
+                                <state key="normal" title="My name is Han meimei">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleChatButtonPress:" destination="IEg-tU-14B" eventType="touchUpInside" id="B30-6R-f7o"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1g-Gv-R1g">
+                                <rect key="frame" x="306" y="64" width="51" height="31"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="2iy-Eb-i0I"/>
+                                    <constraint firstAttribute="height" constant="31" id="wdx-uT-crZ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="handleSwitchChange:" destination="IEg-tU-14B" eventType="valueChanged" id="O6h-Eb-fn9"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用本地数据库缓存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCD-6j-yF7">
+                                <rect key="frame" x="20" y="69" width="187" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5nq-8N-nge"/>
+                                    <constraint firstAttribute="width" constant="187" id="e2k-TT-zg8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ma-Lh-evg">
+                                <rect key="frame" x="20" y="326" width="335" height="35"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.34731533999999997" green="0.80287781729999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="aNr-Vr-Rc4"/>
+                                </constraints>
+                                <state key="normal" title="进入环信客服">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleEnterHuanxin:" destination="IEg-tU-14B" eventType="touchUpInside" id="QRJ-tx-Oeb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jUW-nf-sUj" firstAttribute="leading" secondItem="RdL-ox-t0E" secondAttribute="leading" constant="20" id="41Q-d9-Aj2"/>
+                            <constraint firstItem="K1g-Gv-R1g" firstAttribute="top" secondItem="Mz6-L9-pOC" secondAttribute="bottom" constant="64" id="JKF-Rf-gFL"/>
+                            <constraint firstItem="jUW-nf-sUj" firstAttribute="top" secondItem="Mz6-L9-pOC" secondAttribute="bottom" constant="156" id="KJP-Hm-Qe0"/>
+                            <constraint firstItem="Rtw-Tk-tOH" firstAttribute="top" secondItem="jUW-nf-sUj" secondAttribute="bottom" constant="50" id="Lr6-DZ-E2Z"/>
+                            <constraint firstItem="0ma-Lh-evg" firstAttribute="top" secondItem="Rtw-Tk-tOH" secondAttribute="bottom" constant="50" id="TK7-ic-wre"/>
+                            <constraint firstAttribute="trailing" secondItem="0ma-Lh-evg" secondAttribute="trailing" constant="20" id="XMS-K8-bep"/>
+                            <constraint firstAttribute="trailing" secondItem="Rtw-Tk-tOH" secondAttribute="trailing" constant="20" id="d00-i2-AkN"/>
+                            <constraint firstItem="0ma-Lh-evg" firstAttribute="leading" secondItem="RdL-ox-t0E" secondAttribute="leading" constant="20" id="gad-mY-jJI"/>
+                            <constraint firstItem="gCD-6j-yF7" firstAttribute="leading" secondItem="RdL-ox-t0E" secondAttribute="leading" constant="20" id="ku8-gW-88T"/>
+                            <constraint firstAttribute="trailing" secondItem="K1g-Gv-R1g" secondAttribute="trailing" constant="20" id="kva-8o-bEU"/>
+                            <constraint firstItem="Rtw-Tk-tOH" firstAttribute="leading" secondItem="RdL-ox-t0E" secondAttribute="leading" constant="20" id="tHm-RE-YAy"/>
+                            <constraint firstItem="gCD-6j-yF7" firstAttribute="top" secondItem="Mz6-L9-pOC" secondAttribute="bottom" constant="69" id="uYY-5m-8HG"/>
+                            <constraint firstAttribute="trailing" secondItem="jUW-nf-sUj" secondAttribute="trailing" constant="20" id="xCu-Kr-iDi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aYu-kk-Hk0"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="TIV-UR-9M8" kind="show" id="qRQ-Jp-n80"/>
+                        <segue destination="oHW-8g-zwu" kind="show" id="dUL-ua-oTK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldd-5P-6zB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-213.5" y="-32.5"/>
+        </scene>
+        <!--Chat For Huanxin View Controller-->
+        <scene sceneID="NLa-fc-g2I">
+            <objects>
+                <viewController storyboardIdentifier="ChatForHuanxinViewController" id="oHW-8g-zwu" customClass="ChatForHuanxinViewController" customModule="SwiftChatKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="15u-qX-mjI"/>
+                        <viewControllerLayoutGuide type="bottom" id="JAG-c2-lE5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uK3-jP-Ubs">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vhs-a2-Qml"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krd-wr-MXa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="275.5" y="772.5"/>
         </scene>
     </scenes>
 </document>

@@ -3,13 +3,10 @@ use_frameworks!
 
 target 'SwiftChatKit_Example', :exclusive => true do
   pod "SwiftChatKit", :path => "../"
+  #环信即时通讯SDK
+  pod 'EaseMobSDK'
 end
 
 target 'SwiftChatKit_Tests', :exclusive => true do
   pod "SwiftChatKit", :path => "../"
-
-  pod 'Quick', '~> 0.3.1'
-  pod 'Nimble'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
 end

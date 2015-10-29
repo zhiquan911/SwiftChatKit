@@ -12,10 +12,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var connectionState: EMConnectionState!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //learnCloud相关设置
+        AVOSCloud.setApplicationId("3FmPGWO0SlvN0DisqdmPi7P3", clientKey: "Nj2dE5IBh7r2VSEw4z5pwbmB")
+        AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        //环信相关配置
+        self.easemobApplication(application, launchOptions: launchOptions)
+        
         return true
     }
 
@@ -42,5 +49,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate: IChatManagerDelegate {
+    
+    func easemobApplication(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
+        EaseMob.sharedInstance().registerSDKWithAppKey("zdt#swfitchatkit", apnsCertName: nil)
+        
+        connectionState = EMConnectionState.eEMConnectionConnected;
+        
+        // 注册环信监听
+        self.registerEaseMobNotification()
+        EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+    }
+    
+    
+    func registerEaseMobNotification() {
+        self.unRegisterEaseMobNotification()
+        // 将self 添加到SDK回调中，以便本类可以收到SDK回调
+        EaseMob.sharedInstance().chatManager.addDelegate(self, delegateQueue: nil)
+    }
+    
+    func unRegisterEaseMobNotification() {
+        EaseMob.sharedInstance().chatManager.removeDelegate(self)
+    }
 }
 

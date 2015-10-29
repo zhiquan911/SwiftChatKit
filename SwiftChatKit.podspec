@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SwiftChatKit"
+  s.homepage         = "https://github.com/zhiquan911/SwiftChatKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "麦志泉" => "zhiquan911@qq.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SwiftChatKit.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/zhiquan911/SwiftChatKit.git", :tag => '0.1.0' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'
@@ -31,10 +31,13 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-    'SwiftChatKit' => ['Pod/Assets/*.png']
+    'SwiftChatKit' => ['Pod/Assets/**/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+    s.dependency 'AlamofireImage', '~> 1.0'
+    s.dependency 'SVProgressHUD'
+  # s.dependency 'RealmSwift',  '~> 0.95.3'
 end

@@ -1,0 +1,10 @@
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/EaseMobSDK"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/EaseMobSDK/EaseMobSDK/lib" $(inherited) "${PODS_ROOT}/EaseMobSDK/EaseMobSDK/lib" $(inherited) "${PODS_ROOT}/EaseMobSDK/EaseMobSDK/lib" $(inherited) "${PODS_ROOT}/EaseMobSDK/EaseMobSDK/lib" $(inherited) "${PODS_ROOT}/EaseMobSDK/EaseMobSDK/lib"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/AlamofireImage.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SVProgressHUD.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SwiftChatKit.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/EaseMobSDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"EaseMobClientSDKLite_arm64" -l"EaseMobClientSDKLite_armv7" -l"EaseMobClientSDKLite_armv7s" -l"EaseMobClientSDKLite_i386" -l"EaseMobClientSDKLite_x86_64" -l"iconv" -l"resolv" -l"sqlite3" -l"stdc++" -l"stdc++.6" -l"xml2" -l"z" -framework "AddressBook" -framework "Alamofire" -framework "AlamofireImage" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreLocation" -framework "Foundation" -framework "ImageIO" -framework "MapKit" -framework "MobileCoreServices" -framework "SVProgressHUD" -framework "Security" -framework "SwiftChatKit" -framework "SystemConfiguration" -framework "UIKit"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-SwiftChatKit_Example
+PODS_ROOT = ${SRCROOT}/Pods

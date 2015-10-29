@@ -1,0 +1,6 @@
+framework module SwiftChatKit {
+  umbrella header "SwiftChatKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
