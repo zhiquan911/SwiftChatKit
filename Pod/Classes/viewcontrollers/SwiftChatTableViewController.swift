@@ -12,7 +12,7 @@ import Alamofire
 import SVProgressHUD
 
 /// 聊天窗口控制器
-class SwiftChatTableViewController: UIViewController, SwiftChatTableViewDelegate, SCMessageTableViewCellDelegate {
+public class SwiftChatTableViewController: UIViewController, SwiftChatTableViewDelegate, SCMessageTableViewCellDelegate {
     
     //常量
     let kShareMenuViewHeight: CGFloat = 216.0
@@ -202,13 +202,13 @@ class SwiftChatTableViewController: UIViewController, SwiftChatTableViewDelegate
     }
     
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         
         // KVO 检查contentSize
         self.messageInputView.inputTextView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.New, context: nil)
@@ -219,7 +219,7 @@ class SwiftChatTableViewController: UIViewController, SwiftChatTableViewDelegate
         self.shareMenuView.reloadData()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         
@@ -244,7 +244,7 @@ class SwiftChatTableViewController: UIViewController, SwiftChatTableViewDelegate
             object: nil)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override public func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         // remove KVO
@@ -265,7 +265,7 @@ class SwiftChatTableViewController: UIViewController, SwiftChatTableViewDelegate
     
     - returns:
     */
-    func shouldDisplayTimestampForRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldDisplayTimestampForRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
         if indexPath.row == 0 || indexPath.row > self.messages.count {
             return true
         } else {
@@ -795,11 +795,11 @@ extension SwiftChatTableViewController {
 // MARK: - UITextView代理方法
 extension SwiftChatTableViewController: UITextViewDelegate {
     
-    func textViewDidEndEditing(textView: UITextView) {
+    public func textViewDidEndEditing(textView: UITextView) {
         textView.resignFirstResponder()
     }
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    public func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n" ) {
             if textView.text != "" {
                 let timestamp = NSDate()
@@ -831,17 +831,17 @@ extension SwiftChatTableViewController: UITextViewDelegate {
 // MARK: - 使用扩展方法为控制实现代理接口
 extension SwiftChatTableViewController: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messages.count;
     }
     
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.configCellAtIndexPath(indexPath)
         self.delegate?.configureCell?(cell, indexPath: indexPath)
         return cell
@@ -849,7 +849,7 @@ extension SwiftChatTableViewController: UITableViewDataSource {
     
     
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         //            return 100.0
         var height: CGFloat = 0.0
         height = self.calculateCellHeight(indexPath)
@@ -915,12 +915,12 @@ extension SwiftChatTableViewController: UITableViewDelegate {
 // MARK: - 视图滚动代理方法
 extension SwiftChatTableViewController: UIScrollViewDelegate {
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    public func scrollViewDidScroll(scrollView: UIScrollView) {
         
         self.isDragging = true
     }
     
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         if self.loadingMoreData {
             return
         }
@@ -930,7 +930,7 @@ extension SwiftChatTableViewController: UIScrollViewDelegate {
         }
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if self.loadingMoreData {
             return
         }
@@ -953,7 +953,7 @@ extension SwiftChatTableViewController: UIScrollViewDelegate {
 // MARK: - Key-value Observing
 extension SwiftChatTableViewController {
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if (object === self.messageInputView.inputTextView)
             && (keyPath == "contentSize") { //观测到contentSize变化就调用调整textView高度
                 self.layoutAndAnimateMessageInputTextView(object as! UITextView)
@@ -1071,7 +1071,7 @@ extension SwiftChatTableViewController: ZYQAssetPickerControllerDelegate, UINavi
 
     }
     
-    func assetPickerController(picker: ZYQAssetPickerController!, didFinishPickingAssets assets: [AnyObject]!) {
+    public func assetPickerController(picker: ZYQAssetPickerController!, didFinishPickingAssets assets: [AnyObject]!) {
         let asset = assets[0] as! ALAsset
         let type =  asset.valueForProperty(ALAssetPropertyType) as! String
         if type == ALAssetTypePhoto {
@@ -1087,7 +1087,7 @@ extension SwiftChatTableViewController: ZYQAssetPickerControllerDelegate, UINavi
         self.toggleMediaViewVisible(false)
     }
     
-    func assetPickerControllerDidMaximum(picker: ZYQAssetPickerController!) {
+    public func assetPickerControllerDidMaximum(picker: ZYQAssetPickerController!) {
         SVProgressHUD.showErrorWithStatus("最多选\(picker.maximumNumberOfSelection)个")
     }
     
@@ -1112,7 +1112,7 @@ extension SwiftChatTableViewController: UIImagePickerControllerDelegate {
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    public func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         self.imagePicker.dismissViewControllerAnimated(true, completion: nil)
         var image = info[UIImagePickerControllerOriginalImage] as! UIImage
         

@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 import MediaPlayer
 
-class MediaDisplayViewController: UIViewController {
+public class MediaDisplayViewController: UIViewController {
     
     var imageViewPhoto: UIImageView!
     var message: SCMessage!
@@ -133,7 +133,7 @@ class MediaDisplayViewController: UIViewController {
 
     }
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
         self.loadMedia()
@@ -199,11 +199,11 @@ class MediaDisplayViewController: UIViewController {
         }
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override public func prefersStatusBarHidden() -> Bool {
         return true
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 

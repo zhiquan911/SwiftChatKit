@@ -20,16 +20,16 @@ import AVFoundation
 - Emotion:       表情
 - LocalPosition: 地理位置
 */
-enum SCMessageMediaType: Int {
+public enum SCMessageMediaType: Int {
     case Text, Photo, Video, Voice
     //, Emotion, LocalPosition
 }
 
-enum SCMessageSourceType: Int {
+public enum SCMessageSourceType: Int {
     case Send, Receive
 }
 
-class SCMessage: NSObject {
+public class SCMessage: NSObject {
     
     var messageId: Int = 0
     

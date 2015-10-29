@@ -11,7 +11,7 @@ import UIKit
 /**
 *  聊天窗口代理
 */
-@objc protocol SwiftChatTableViewDelegate: AnyObject {
+@objc public protocol SwiftChatTableViewDelegate: AnyObject {
     
     /**
     获取单元格的消息

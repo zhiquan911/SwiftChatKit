@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol SCMessageTableViewCellDelegate {
+@objc public protocol SCMessageTableViewCellDelegate {
     
     /**
     点击单元格
@@ -19,7 +19,7 @@ import UIKit
     optional func singleDidSelectMessageCell(indexPath: NSIndexPath, cell: SCMessageTableViewCell)
 }
 
-class SCMessageTableViewCell: UITableViewCell {
+public class SCMessageTableViewCell: UITableViewCell {
     
     static let kDefaultImage = UIImage(named: "PhotoDownload")!
     
@@ -52,14 +52,14 @@ class SCMessageTableViewCell: UITableViewCell {
     let minBubbleVoiceWdith: Float = 66
     let maxVoiceDuration: Float = 60.0
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         viewTimeStamp.layer.cornerRadius = 3;
         viewTimeStamp.layer.masksToBounds = true;
         progressView.hidesWhenStopped = true
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override public func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

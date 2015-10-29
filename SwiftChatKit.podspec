@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SwiftChatKit"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "A short description of SwiftChatKit."
 
 # This description is used to generate tags and improve search results.
@@ -17,13 +17,14 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+                            即时通讯UI框架
                        DESC
 
   s.homepage         = "https://github.com/zhiquan911/SwiftChatKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "麦志泉" => "zhiquan911@qq.com" }
-  s.source           = { :git => "https://github.com/zhiquan911/SwiftChatKit.git", :tag => '0.1.0' }
+  s.source           = { :git => "https://github.com/zhiquan911/SwiftChatKit.git", :tag => '0.1.1' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'
